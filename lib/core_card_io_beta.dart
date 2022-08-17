@@ -28,6 +28,7 @@ class CoreCardIo {
     bool? usePayPalActionbarIcon,
     bool? keepApplicationTheme,
     String? scanInstructions,
+    String? languageOrLocale
   }) async {
     final Map<dynamic, dynamic>? result = (await _channel.invokeMethod('scanCard', {
       'requireExpiry': requireExpiry,
@@ -42,7 +43,8 @@ class CoreCardIo {
       'useCardIOLogo': useCardIOLogo,
       'usePayPalActionbarIcon': usePayPalActionbarIcon,
       'keepApplicationTheme': keepApplicationTheme,
-      'scanInstructions': scanInstructions
+      'scanInstructions': scanInstructions,
+      'languageOrLocale': languageOrLocale
     }));
 
     return await compute<Map<String, dynamic>?, CoreCardIoResponse?>(

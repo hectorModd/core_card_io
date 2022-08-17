@@ -55,6 +55,7 @@
         _scanViewController.useCardIOLogo = [_arguments objectForKey:@"useCardIOLogo"] && [_arguments objectForKey:@"useCardIOLogo"] != (id)[NSNull null] ? [[_arguments objectForKey:@"useCardIOLogo"] boolValue] : false;
         _scanViewController.suppressScanConfirmation = [_arguments objectForKey:@"suppressConfirmation"] && [_arguments objectForKey:@"suppressConfirmation"] != (id)[NSNull null] ? [[_arguments objectForKey:@"suppressConfirmation"] boolValue] : false;
         _scanViewController.disableManualEntryButtons = [_arguments objectForKey:@"suppressManualEntry"] && [_arguments objectForKey:@"suppressManualEntry"] != (id)[NSNull null] ? [[_arguments objectForKey:@"suppressManualEntry"] boolValue] : false;
+        _scanViewController.languageOrLocale = [_arguments objectForKey:@"languageOrLocale"] != (id)[NSNull null] ? [_arguments valueForKey:@"languageOrLocale"] : @"";
         
         [_viewController presentViewController:_scanViewController animated:YES completion:nil];
     } else {

@@ -147,6 +147,11 @@ public class CoreCardIoPlugin implements FlutterPlugin, MethodCallHandler, Activ
                 keepApplicationTheme = methodCall.argument("keepApplicationTheme");
             }
 
+            String languageOrLocale = null;
+            if (methodCall.hasArgument("languageOrLocale") && methodCall.argument("languageOrLocale") != null) {
+                languageOrLocale = methodCall.argument("languageOrLocale");
+            }
+
             // customize these values to suit your needs.
             scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, requireExpiry); // default: false
             scanIntent.putExtra(CardIOActivity.EXTRA_SCAN_EXPIRY, scanExpiry);
@@ -161,6 +166,7 @@ public class CoreCardIoPlugin implements FlutterPlugin, MethodCallHandler, Activ
             scanIntent.putExtra(CardIOActivity.EXTRA_HIDE_CARDIO_LOGO, hideCardIOLogo);
             scanIntent.putExtra(CardIOActivity.EXTRA_USE_PAYPAL_ACTIONBAR_ICON, usePayPalActionbarIcon);
             scanIntent.putExtra(CardIOActivity.EXTRA_KEEP_APPLICATION_THEME, keepApplicationTheme);
+            scanIntent.putExtra(CardIOActivity.EXTRA_LANGUAGE_OR_LOCALE, languageOrLocale);
 
             // MY_SCAN_REQUEST_CODE is arbitrary and is only used within this activity.
             activity.startActivityForResult(scanIntent, MY_SCAN_REQUEST_CODE);
